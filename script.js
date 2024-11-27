@@ -180,73 +180,114 @@ function generateHealthInsights(age, zodiacSign) {
     const recommendedSleep = getSleepRecommendation(age);
     const zodiacTrait = getZodiacSleepTrait(zodiacSign);
     
+    // Calculate age-related statistics
+    const daysOld = Math.floor(age * 365);
+    const monthsOld = Math.floor(age * 12);
+    const hoursOld = Math.floor(age * 365 * 24);
+    
+    // Get age milestone message
+    let milestoneMsg = '';
+    if (age < 13) {
+        milestoneMsg = `You're in your wonderful childhood years! 🎈`;
+    } else if (age < 20) {
+        milestoneMsg = `Welcome to your teenage adventure! 🚀`;
+    } else if (age < 30) {
+        milestoneMsg = `Enjoying your vibrant twenties! ✨`;
+    } else if (age < 40) {
+        milestoneMsg = `Thriving in your dynamic thirties! 💫`;
+    } else if (age < 50) {
+        milestoneMsg = `Rocking your fabulous forties! 🌟`;
+    } else if (age < 60) {
+        milestoneMsg = `Celebrating your golden fifties! 🎯`;
+    } else {
+        milestoneMsg = `Embracing your wisdom years! 👑`;
+    }
+
     // Calculate fun statistics
     const netflixBinges = Math.floor(sleepStats.hoursSlept/24/7);
     const dreamCount = Math.floor(sleepStats.hoursSlept * 5).toLocaleString();
-    const booksRead = Math.floor(sleepStats.hoursSlept/4); // Assuming 4 hours per book
+    const booksRead = Math.floor(sleepStats.hoursSlept/4);
     
     // Get age-appropriate fun facts
     let funFact = '';
     if (age < 12) {
-        funFact = `That's like having ${Math.floor(sleepStats.hoursSlept/2)} super fun naps with your favorite teddy bear! 🧸`;
+        funFact = `You've had about ${Math.floor(age * 365 * 2)} bedtime stories! 📚`;
     } else if (age < 20) {
-        funFact = `You could have played ${Math.floor(sleepStats.hoursSlept/3)} video games in that time! 🎮`;
+        funFact = `You've spent roughly ${Math.floor(age * 180)} hours playing video games! 🎮`;
     } else if (age < 30) {
-        funFact = `You could have scrolled through ${Math.floor(sleepStats.hoursSlept * 100)} TikToks in that time! 📱`;
+        funFact = `You could have watched ${Math.floor(age * 100)} seasons of your favorite shows! 📺`;
     } else {
-        funFact = `That's equivalent to ${Math.floor(sleepStats.hoursSlept/2)} cups of coffee! ☕`;
+        funFact = `You've had approximately ${Math.floor(age * 365 * 2)} cups of coffee! ☕`;
     }
 
     const insights = `
         <div class="insight-card main-insight">
-            <h3>💫 Your Sleep Story</h3>
+            <div class="age-milestone">
+                <h2 class="milestone-text">${milestoneMsg}</h2>
+                <div class="age-details">
+                    <span class="detail-item">🎂 ${daysOld.toLocaleString()} days</span>
+                    <span class="detail-item">📅 ${monthsOld.toLocaleString()} months</span>
+                    <span class="detail-item">⏰ ${hoursOld.toLocaleString()} hours</span>
+                </div>
+            </div>
+            
             <div class="stat-grid">
                 <div class="stat-item">
                     <div class="stat-value">${sleepStats.yearsSlept}</div>
-                    <div class="stat-label">Years Spent Sleeping</div>
+                    <div class="stat-label">Years in Dreamland</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item highlight">
                     <div class="stat-value">${recommendedSleep}</div>
-                    <div class="stat-label">Recommended Daily Sleep</div>
+                    <div class="stat-label">Perfect Sleep Hours</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-value">${dreamCount}</div>
-                    <div class="stat-label">Estimated Dreams</div>
+                    <div class="stat-label">Dreams Had</div>
                 </div>
             </div>
             <p class="fun-fact">${funFact}</p>
         </div>
 
         <div class="insight-card personality-card">
-            <h3>✨ ${zodiacSign}'s Sleep Profile</h3>
+            <h3>✨ Your ${zodiacSign} Sleep Profile</h3>
             <p class="zodiac-insight">${zodiacTrait}</p>
-            <div class="sleep-fact">Did you know? At ${age}, your sleep cycles are typically ${age < 25 ? 'longer and deeper' : 'lighter but more consistent'}.</div>
+            <div class="sleep-fact">
+                <span class="age-highlight">At ${age}</span>, your sleep cycles are 
+                ${age < 25 ? 'deeper and more restorative' : 'naturally adapting to your life rhythm'}.
+                ${age < 18 ? 'Your growing body needs extra rest!' : 
+                  age < 30 ? 'Your peak physical years demand quality sleep!' : 
+                  age < 50 ? 'Maintaining good sleep habits is crucial now!' :
+                  'Quality sleep helps keep you young at heart!'}
+            </div>
         </div>
 
         <div class="insight-card recommendations">
-            <h3>🌙 Your Sleep Blueprint</h3>
-            <div class="age-specific">Based on your age (${age}), here's what you need to know:</div>
+            <h3>🌙 Your Age-Perfect Sleep Guide</h3>
+            <div class="age-specific">
+                <span class="age-highlight">At ${age} years young</span>, here's your personalized sleep wisdom:
+            </div>
             <ul class="sleep-tips">
                 ${generateAgeSleepChallenges(age)}
             </ul>
         </div>
 
         <div class="insight-card achievement">
-            <h3>🏆 Sleep Achievements</h3>
+            <h3>🏆 Your Life in Numbers</h3>
             <div class="achievements-grid">
                 <div class="achievement-item">
                     <span class="achievement-icon">📺</span>
-                    <span class="achievement-text">Equivalent to ${netflixBinges} Netflix binges</span>
+                    <span class="achievement-text">${netflixBinges} Netflix binges worth of sleep</span>
                 </div>
                 <div class="achievement-item">
                     <span class="achievement-icon">📚</span>
-                    <span class="achievement-text">Could have read ${booksRead} books</span>
+                    <span class="achievement-text">${booksRead} books' worth of rest</span>
                 </div>
                 <div class="achievement-item">
                     <span class="achievement-icon">🌟</span>
-                    <span class="achievement-text">${Math.floor(age * 365)} nights of rest</span>
+                    <span class="achievement-text">${Math.floor(age * 365)} nights of dreams</span>
                 </div>
             </div>
+            <p class="age-journey">Your journey of ${age} years has been filled with countless moments of rest and renewal! 🌈</p>
         </div>
     `;
 
