@@ -9,70 +9,107 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Age Calculator & Sleep Health</h1>
-            <p class="subtitle">Age Calculation Meets Sleep Science: Custom Insights for Better Living</p>
-        </div>
-        <div class="input-section">
-            <div class="input-group">
-                <label for="birthYear">Year</label>
-                <input type="number" id="birthYear" required placeholder="YYYY" oninput="validateYear(this)">
+        <div class="example-section">
+            <div class="example-header">
+                <h3>Example Calculation</h3>
+                <span class="example-toggle">Show Example ↓</span>
             </div>
-            
-            <div class="input-group">
-                <label for="birthMonth">Month</label>
-                <select id="birthMonth" required onchange="updateDayLimit()">
-                    <option value="">Select Month</option>
-                    <option value="0">January</option>
-                    <option value="1">February</option>
-                    <option value="2">March</option>
-                    <option value="3">April</option>
-                    <option value="4">May</option>
-                    <option value="5">June</option>
-                    <option value="6">July</option>
-                    <option value="7">August</option>
-                    <option value="8">September</option>
-                    <option value="9">October</option>
-                    <option value="10">November</option>
-                    <option value="11">December</option>
-                </select>
-            </div>
-            
-            <div class="input-group">
-                <label for="birthDay">Day</label>
-                <input type="number" id="birthDay" min="1" max="31" required placeholder="DD" oninput="validateDay(this)">
-            </div>
-        </div>
-        
-        <div class="button-group">
-            <button onclick="calculateAge()">Calculate Age</button>
-            <button onclick="resetInputs()">Reset</button>
-        </div>
-        
-        <div id="result" class="result-section" style="display: none;">
-            <h2 id="ageDisplay"></h2>
-            <div id="healthInsights"></div>
-        </div>
-        
-        <div class="premium-section">
-            <div class="premium-content">
-                <div class="premium-text">
-                    <h2>Unlock Your Perfect Sleep</h2>
-                    <p class="premium-description">Transform your nights with personalized sleep insights and tracking. Join thousands of others discovering their optimal sleep pattern.</p>
-                    <ul class="feature-list">
-                        <li>🌙 Advanced Sleep Analytics</li>
-                        <li>📊 Personalized Sleep Reports</li>
-                        <li>🎯 Smart Sleep Goals</li>
-                        <li>🔔 Sleep Cycle Optimization</li>
-                    </ul>
-                    <a href="https://sleephealth.ai" class="cta-button" target="_blank">
-                        Start Your Sleep Journey
-                    </a>
+            <div class="example-content">
+                <div class="example-grid">
+                    <div class="example-item">
+                        <div class="example-label">Born on:</div>
+                        <div class="example-value">Thursday November 23, 1111</div>
+                    </div>
+                    <div class="example-item">
+                        <div class="example-label">Age on:</div>
+                        <div class="example-value">Wednesday November 27, 2024</div>
+                    </div>
                 </div>
-                <div class="premium-images">
-                    <img src="https://shuteye.ai/img/homeTest/phone-model.webp" alt="Sleep App Interface" class="phone-image">
-                    <img src="https://shuteye.ai/img/homeTest/thirteenth/pic1.webp" alt="Sleep Analytics" class="analytics-image">
-                    <img src="https://shuteye.ai/img/blog-content-cta-mod.png" alt="Sleep Insights" class="insights-image">
+                <div class="example-details">
+                    <h4>Exact age in different time units:</h4>
+                    <ul class="example-list">
+                        <li>= 913 years 0 months 4 days</li>
+                        <li>= 10,956 months 4 days</li>
+                        <li>= 47,638 weeks 6 days</li>
+                        <li>= 333,472 days</li>
+                        <li>≈ 8,003,328 hours</li>
+                        <li>≈ 480,199,680 minutes</li>
+                        <li>≈ 28,811,980,800 seconds</li>
+                    </ul>
+                    <div class="example-next-birthday">
+                        <span>360 days till next birthday</span>
+                        <span class="birthday-date">Sunday November 23, 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="calculator-section">
+            <div class="header">
+                <h1>Age Calculator & Sleep Health</h1>
+                <p class="subtitle">Age Calculation Meets Sleep Science: Custom Insights for Better Living</p>
+            </div>
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="birthYear">Year</label>
+                    <input type="number" id="birthYear" required placeholder="YYYY" oninput="validateYear(this)">
+                </div>
+                
+                <div class="input-group">
+                    <label for="birthMonth">Month</label>
+                    <select id="birthMonth" required onchange="updateDayLimit()">
+                        <option value="">Select Month</option>
+                        <option value="0">January</option>
+                        <option value="1">February</option>
+                        <option value="2">March</option>
+                        <option value="3">April</option>
+                        <option value="4">May</option>
+                        <option value="5">June</option>
+                        <option value="6">July</option>
+                        <option value="7">August</option>
+                        <option value="8">September</option>
+                        <option value="9">October</option>
+                        <option value="10">November</option>
+                        <option value="11">December</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="birthDay">Day</label>
+                    <input type="number" id="birthDay" min="1" max="31" required placeholder="DD" oninput="validateDay(this)">
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button onclick="calculateAge()">Calculate Age</button>
+                <button onclick="resetInputs()">Reset</button>
+            </div>
+            
+            <div id="result" class="result-section" style="display: none;">
+                <h2 id="ageDisplay"></h2>
+                <div id="healthInsights"></div>
+            </div>
+            
+            <div class="premium-section">
+                <div class="premium-content">
+                    <div class="premium-text">
+                        <h2>Unlock Your Perfect Sleep</h2>
+                        <p class="premium-description">Transform your nights with personalized sleep insights and tracking. Join thousands of others discovering their optimal sleep pattern.</p>
+                        <ul class="feature-list">
+                            <li>🌙 Advanced Sleep Analytics</li>
+                            <li>📊 Personalized Sleep Reports</li>
+                            <li>🎯 Smart Sleep Goals</li>
+                            <li>🔔 Sleep Cycle Optimization</li>
+                        </ul>
+                        <a href="https://sleephealth.ai" class="cta-button" target="_blank">
+                            Start Your Sleep Journey
+                        </a>
+                    </div>
+                    <div class="premium-images">
+                        <img src="https://shuteye.ai/img/homeTest/phone-model.webp" alt="Sleep App Interface" class="phone-image">
+                        <img src="https://shuteye.ai/img/homeTest/thirteenth/pic1.webp" alt="Sleep Analytics" class="analytics-image">
+                        <img src="https://shuteye.ai/img/blog-content-cta-mod.png" alt="Sleep Insights" class="insights-image">
+                    </div>
                 </div>
             </div>
         </div>

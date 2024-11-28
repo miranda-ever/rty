@@ -245,6 +245,10 @@ function generateHealthInsights(age, zodiacSign) {
                     <div class="stat-label">Dreams Had</div>
                 </div>
             </div>
+            <div class="dream-cta">
+                <p class="dream-insight">Discover patterns in your ${dreamCount} dreams and unlock insights about your sleep journey.</p>
+                <a href="#" class="dream-button">Try Dream Analyze Free on Shuteye</a>
+            </div>
             <p class="fun-fact">${funFact}</p>
         </div>
 
@@ -264,11 +268,29 @@ function generateHealthInsights(age, zodiacSign) {
         <div class="insight-card recommendations">
             <h3>🌙 Your Age-Perfect Sleep Guide</h3>
             <div class="age-specific">
-                <span class="age-highlight">At ${age} years young</span>, here's your personalized sleep wisdom:
+                <span class="age-highlight">At ${age} years young</span>, enhance your sleep quality with Shuteye:
             </div>
             <ul class="sleep-tips">
                 ${generateAgeSleepChallenges(age)}
             </ul>
+            <div class="app-features">
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <span class="feature-text">Monitor sleep quality with advanced tracking</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎤</span>
+                    <span class="feature-text">Record and analyze sleep sounds</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎵</span>
+                    <span class="feature-text">Access a library of soothing sleep sounds</span>
+                </div>
+            </div>
+            <div class="cta-container">
+                <a href="#" class="cta-button">Try on Shuteye</a>
+                <p class="cta-subtext">Join thousands who've improved their sleep quality with Shuteye</p>
+            </div>
         </div>
 
         <div class="insight-card achievement">
@@ -289,6 +311,73 @@ function generateHealthInsights(age, zodiacSign) {
             </div>
             <p class="age-journey">Your journey of ${age} years has been filled with countless moments of rest and renewal! 🌈</p>
         </div>
+
+        <div class="insight-card answer-card">
+            <h3>Your Age Calculation Results</h3>
+            <div class="date-comparison">
+                <div class="date-item">
+                    <span class="date-label">Born on:</span>
+                    <span class="date-value">Thursday November 23, 1111</span>
+                </div>
+                <div class="date-item">
+                    <span class="date-label">Age on:</span>
+                    <span class="date-value">Wednesday November 27, 2024</span>
+                </div>
+            </div>
+            
+            <div class="time-units">
+                <h4>Exact age in different time units:</h4>
+                <div class="time-grid">
+                    <div class="time-item">
+                        <span class="time-value">913</span>
+                        <span class="time-label">years</span>
+                    </div>
+                    <div class="time-item">
+                        <span class="time-value">0</span>
+                        <span class="time-label">months</span>
+                    </div>
+                    <div class="time-item">
+                        <span class="time-value">4</span>
+                        <span class="time-label">days</span>
+                    </div>
+                </div>
+                
+                <div class="detailed-units">
+                    <div class="unit-row">
+                        <span class="unit-label">Total Months:</span>
+                        <span class="unit-value">10,956 months 4 days</span>
+                    </div>
+                    <div class="unit-row">
+                        <span class="unit-label">Total Weeks:</span>
+                        <span class="unit-value">47,638 weeks 6 days</span>
+                    </div>
+                    <div class="unit-row">
+                        <span class="unit-label">Total Days:</span>
+                        <span class="unit-value">333,472 days</span>
+                    </div>
+                    <div class="unit-row">
+                        <span class="unit-label">Total Hours:</span>
+                        <span class="unit-value">≈ 8,003,328 hours</span>
+                    </div>
+                    <div class="unit-row">
+                        <span class="unit-label">Total Minutes:</span>
+                        <span class="unit-value">≈ 480,199,680 minutes</span>
+                    </div>
+                    <div class="unit-row">
+                        <span class="unit-label">Total Seconds:</span>
+                        <span class="unit-value">≈ 28,811,980,800 seconds</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="next-birthday">
+                <div class="birthday-countdown">
+                    <span class="countdown-value">360</span>
+                    <span class="countdown-label">days till next birthday</span>
+                </div>
+                <span class="birthday-date">Sunday November 23, 2025</span>
+            </div>
+        </div>
     `;
 
     return insights;
@@ -297,28 +386,30 @@ function generateHealthInsights(age, zodiacSign) {
 function generateAgeSleepChallenges(age) {
     const challenges = {
         young: [
-            "Digital device exposure before bedtime",
-            "Irregular sleep schedule",
-            "Caffeine sensitivity",
-            "Social media anxiety affecting sleep"
+            "🎯 Track sleep patterns for optimal growth and development",
+            "🎵 Use calming bedtime music for better sleep quality",
+            "📱 Monitor nighttime breathing patterns"
         ],
         adult: [
-            "Work-related stress affecting sleep quality",
-            "Blue light exposure from devices",
-            "Inconsistent sleep schedule",
-            "Environmental disturbances"
+            "🎯 Record and analyze sleep cycles for better rest",
+            "🎵 Access personalized sleep soundscapes",
+            "📱 Track sleep disruptions and get insights"
         ],
-        mature: [
-            "Changes in natural sleep patterns",
-            "Environmental sensitivity",
-            "Sleep cycle interruptions",
-            "Temperature regulation during sleep"
+        senior: [
+            "🎯 Monitor sleep quality for healthy aging",
+            "🎵 Use custom ambient sounds for peaceful rest",
+            "📱 Track sleep patterns and get personalized advice"
         ]
     };
 
-    const selectedChallenges = age < 25 ? challenges.young : 
-                             age < 50 ? challenges.adult : 
-                             challenges.mature;
+    let selectedChallenges = [];
+    if (age < 18) {
+        selectedChallenges = challenges.young;
+    } else if (age < 50) {
+        selectedChallenges = challenges.adult;
+    } else {
+        selectedChallenges = challenges.senior;
+    }
 
     return selectedChallenges.map(challenge => 
         `<li class="challenge-item">${challenge}</li>`
@@ -360,3 +451,15 @@ document.getElementById('resetButton').addEventListener('click', resetInputs);
 
 document.getElementById('birthYear').addEventListener('input', validateYear);
 document.getElementById('birthDay').addEventListener('input', validateDay);
+
+// Add event listener for example section toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const exampleHeader = document.querySelector('.example-header');
+    const exampleContent = document.querySelector('.example-content');
+    const exampleToggle = document.querySelector('.example-toggle');
+    
+    exampleHeader.addEventListener('click', function() {
+        exampleContent.classList.toggle('show');
+        exampleToggle.textContent = exampleContent.classList.contains('show') ? 'Hide Example ↑' : 'Show Example ↓';
+    });
+});

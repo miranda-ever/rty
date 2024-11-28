@@ -446,22 +446,367 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.app-features {
+    margin: 25px 0;
+    display: grid;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(5px);
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+}
+
+.feature-text {
+    font-size: 1rem;
+    color: #e5e5e5;
+    line-height: 1.4;
+}
+
+.cta-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
 .cta-button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 16px 40px;
     background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+    border-radius: 12px;
     color: white;
-    text-decoration: none;
-    border-radius: 30px;
+    text-align: center;
+    font-size: 1.2rem;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #4287f6 0%, #70b0ff 100%);
+}
+
+.cta-subtext {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+.dream-cta {
+    margin: 25px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.dream-cta::before {
+    content: '✨';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.dream-insight {
+    color: #e5e5e5;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.dream-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    color: #3b82f6;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.dream-button:hover {
+    background: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.example-section {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    border-radius: 16px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.example-header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    cursor: pointer;
+}
+
+.example-header h3 {
+    margin: 0;
+    color: #e5e5e5;
+    font-size: 1.1rem;
+}
+
+.example-toggle {
+    color: #3b82f6;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.example-content {
+    padding: 20px;
+    display: none;
+}
+
+.example-content.show {
+    display: block;
+}
+
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.example-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.example-label {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.example-value {
+    color: #e5e5e5;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.example-details h4 {
+    color: #e5e5e5;
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+}
+
+.example-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.example-list li {
+    color: #e5e5e5;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+}
+
+.example-next-birthday {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    color: #e5e5e5;
+    font-size: 0.95rem;
+}
+
+.birthday-date {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+.answer-card {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.answer-card h3 {
+    color: #e5e5e5;
+    margin: 0 0 20px 0;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.date-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.date-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.date-label {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.date-value {
+    color: #e5e5e5;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.time-units {
+    margin-top: 25px;
+}
+
+.time-units h4 {
+    color: #e5e5e5;
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.time-item {
+    background: rgba(59, 130, 246, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.time-value {
+    color: #3b82f6;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.time-label {
+    color: #888;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detailed-units {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.unit-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.unit-row:last-child {
+    border-bottom: none;
+}
+
+.unit-label {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+.unit-value {
+    color: #e5e5e5;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+}
+
+.next-birthday {
+    margin-top: 30px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.birthday-countdown {
+    margin-bottom: 10px;
+}
+
+.countdown-value {
+    color: #3b82f6;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.countdown-label {
+    color: #e5e5e5;
+    font-size: 1.1rem;
+}
+
+.birthday-date {
+    display: block;
+    color: #888;
+    font-size: 1rem;
 }
 
 @media (max-width: 1024px) {
@@ -533,9 +878,15 @@ button:hover {
         padding: 20px;
     }
     
+    .cta-container {
+        padding: 15px;
+        margin-top: 25px;
+    }
+    
     .cta-button {
+        padding: 14px 30px;
+        font-size: 1.1rem;
         width: 100%;
-        text-align: center;
     }
     
     .stat-grid {
@@ -570,5 +921,82 @@ button:hover {
     .detail-item {
         font-size: 0.9rem;
         padding: 8px 15px;
+    }
+    
+    .feature-item {
+        padding: 12px;
+    }
+    
+    .feature-text {
+        font-size: 0.9rem;
+    }
+    
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .dream-cta {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    .dream-insight {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .dream-button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .example-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .example-next-birthday {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .example-list li {
+        font-size: 0.85rem;
+    }
+    
+    .date-comparison {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .time-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .time-value {
+        font-size: 1.5rem;
+    }
+    
+    .time-label {
+        font-size: 0.8rem;
+    }
+    
+    .unit-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 10px;
+    }
+    
+    .countdown-value {
+        font-size: 2rem;
+    }
+    
+    .countdown-label {
+        font-size: 1rem;
     }
 }
